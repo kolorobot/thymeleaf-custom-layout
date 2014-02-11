@@ -27,6 +27,11 @@ public class ThymeleafLayoutInterceptorTest {
     }
 
     @Test
+    public void returnsWhenModelAndViewIsNull() throws Exception {
+        interceptor.postHandle(null, null, null, null);
+    }
+
+    @Test
     public void returnsWhenNoViewIsPresent() throws Exception {
         // arrange
         when(modelAndView.hasView()).thenReturn(false);
