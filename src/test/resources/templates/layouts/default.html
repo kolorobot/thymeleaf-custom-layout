@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>I am default layout</title>
+</head>
+<body>
+<h1>Header in default layout!</h1>
+<div th:replace="fragments/header :: header">Header goes here!</div>
+<div th:replace="${view} :: content">Content goes here!</div>
+<div th:replace="fragments/footer :: footer">Footer goes here!</div>
+</body>
+</html>

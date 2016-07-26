@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>I am simple layout</title>
+</head>
+<body>
+<h1>Header in simple layout!</h1>
+<div class="container" th:replace="${view} :: content">Content goes here!</div>
+</body>
+</html>

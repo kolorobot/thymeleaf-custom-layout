@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>thymeleaf-custom-layout</groupId>
+    <groupId>pl.codeleak</groupId>
     <artifactId>thymeleaf-custom-layout</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Thymeleaf Custom Layout</name>
@@ -18,50 +18,50 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.2.5.RELEASE</version>
+            <version>4.3.1.RELEASE</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-servlet_3.0_spec</artifactId>
-            <version>1.0</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Test -->
+        <!-- Test (Integration tests with Spring Boot) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.3.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>1.3.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.3.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>4.11</version>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.9.5</version>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.easytesting</groupId>
-            <artifactId>fest-assert</artifactId>
-            <version>1.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <version>1.3</version>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.5.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

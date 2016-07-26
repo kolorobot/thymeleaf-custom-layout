@@ -6,5 +6,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Layout {
+    String NONE = "none"; // no layout will be used
+
     String value();
 }
