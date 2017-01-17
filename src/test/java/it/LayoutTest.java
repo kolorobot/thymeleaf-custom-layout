@@ -3,8 +3,7 @@ package it;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -15,8 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebIntegrationTest
-@SpringApplicationConfiguration(classes = CustomLayoutTestApp.class)
+@SpringBootTest(classes = CustomLayoutTestApp.class)
 public class LayoutTest {
 
     @Autowired
@@ -54,5 +52,13 @@ public class LayoutTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/no-layout"))
                .andDo(print())
                .andExpect(xpath("/html/head/title").string("No layout!"));
+    }
+
+    @Test
+    public void parameterizableViewControllerHasDefaultLayout() throws Exception {
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        mockMvc.perform(MockMvcRequestBuilders.get("/vc"))
+               .andDo(print())
+               .andExpect(xpath("/html/head/title").string("I am default layout"));
     }
 }

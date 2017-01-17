@@ -49,13 +49,14 @@ public class ThymeleafLayoutInterceptor extends HandlerInterceptorAdapter {
     }
 
     private String getLayoutName(Object handler) {
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
-        Layout layout = getMethodOrTypeAnnotation(handlerMethod);
-        if (layout == null) {
-            return this.defaultLayout;
-        } else {
-            return layout.value();
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            Layout layout = getMethodOrTypeAnnotation(handlerMethod);
+            if (layout != null) {
+                return layout.value();
+            }
         }
+        return this.defaultLayout;
     }
 
     private Layout getMethodOrTypeAnnotation(HandlerMethod handlerMethod) {
